@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 #copy the current directory contents in to the contaianer at /usr/src/app
 COPY . .
 #Install any dependecies specified in requirements.txt
-#RUN pip install --no-cache-dire -r requirements.txt
+#RUN pip install --no-cache-dir -r requirements.txt
 
 #Run app.py when cthe container launches
 CMD ["pyhton" , "./app.py"]
