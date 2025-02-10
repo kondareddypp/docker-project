@@ -1,0 +1,21 @@
+Set up your Azure DevOps pipeline using the azure-pipelines.yml file.
+
+Here's a brief rundown of what each section does:
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env: Uses the .NET SDK image for building the application.
+
+COPY *.csproj ./ and RUN dotnet restore: Copies the project file and restores dependencies.
+
+COPY . ./ and RUN dotnet publish -c Release -o out: Copies the remaining files and builds the app.
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0: Uses the ASP.NET runtime image to run the application.
+
+COPY --from=build-env /app/out .: Copies the built app from the build environment.
+
+The azure-pipelines.yml file defines an Azure DevOps pipeline that:
+
+Triggers on changes to the main branch.
+
+Builds the .NET Core project.
+
+Builds and pushes a Docker image to your container registry.
