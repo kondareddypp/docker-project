@@ -1,0 +1,11 @@
+This basic Dockerfile does the following:
+
+Uses the official Python 3.9 slim image as the base.
+
+Sets the working directory in the container to /usr/src/app.
+
+Copies all files from your project directory into the container.
+
+Optionally installs Python dependencies (commented out in this example).
+
+Specifies the command to run (app.py) when the container starts.
